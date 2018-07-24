@@ -1,14 +1,13 @@
 ﻿using System;
 namespace cell
 {
-    public class Cell
+    public abstract class Cell<T> where T : Hormone
     {
-        protected void Bind<Hormone>(Action<Hormone> response) where Hormone: cell.Hormone
-        {
-        }
+        public abstract Action<T> GetHormonalResponse();
 
         protected void Emit(Hormone hormone)
         {
+            EndocrineSystem.Inject(hormone);
         }
     }
 }

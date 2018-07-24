@@ -2,11 +2,11 @@
 {
     public class InputValidated : Hormone
     {
-        public string Input { get; }
+        public string Data { get; }
 
-        public InputValidated(string input)
+        public InputValidated(string data)
         {
-            Input = input;
+            Data = data;
         }
     }
 }

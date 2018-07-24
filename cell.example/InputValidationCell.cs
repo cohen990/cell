@@ -2,23 +2,26 @@
 
 namespace cell.example
 {
-    public class InputValidationCell : Cell
+    public class InputValidationCell : Cell<InputReceived>
     {
-        public InputValidationCell()
+        public override Action<InputReceived> GetHormonalResponse()
         {
-            Bind<InputReceived>((hormone) => ValidateInput(hormone));
+            return hormone => ValidateInput(hormone);
         }
 
         public void ValidateInput(InputReceived hormone)
         {
             if(isValid(hormone.Input)){
                 Emit(new InputValidated(hormone.Input));
+                return;
             }
+
+            Emit(new InputValidationFailed(hormone.Input));
         }
 
-        private bool isValid(string input)
+        bool isValid(string input)
         {
-            if(input.Length < 3){
+            if(input.Length > 3){
                 return true;
             }
             return false;
