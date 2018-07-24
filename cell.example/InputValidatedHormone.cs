@@ -1,10 +1,10 @@
 ﻿namespace cell.example
 {
-    public class InputValidated : Hormone
+    public class InputValidatedHormone : Hormone
     {
         public string Data { get; }
 
-        public InputValidated(string data)
+        public InputValidatedHormone(string data)
         {
             Data = data;
         }

@@ -1,10 +1,10 @@
 ﻿namespace cell.example
 {
-    public class ProcessingComplete : Hormone
+    public class EncodingCompleteHormone : Hormone
     {
         public string Base64Encoded { get; }
 
-        public ProcessingComplete(string base64Encoded)
+        public EncodingCompleteHormone(string base64Encoded)
         {
             Base64Encoded = base64Encoded;
         }

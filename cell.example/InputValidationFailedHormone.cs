@@ -1,10 +1,10 @@
 ﻿namespace cell.example
 {
-    internal class InputValidationFailed : Hormone
+    internal class InputValidationFailedHormone : Hormone
     {
         private string input;
 
-        public InputValidationFailed(string input)
+        public InputValidationFailedHormone(string input)
         {
             this.input = input;
         }
