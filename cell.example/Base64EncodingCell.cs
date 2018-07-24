@@ -2,17 +2,17 @@
 
 namespace cell.example
 {
-    public class ProcessingCell : Cell<InputValidated>
+    public class Base64EncodingCell : Cell<InputValidatedHormone>
     {
-        public override Action<InputValidated> GetHormonalResponse()
+        public override Action<InputValidatedHormone> GetHormonalResponse()
         {
             return hormone => ProcessInput(hormone);
         }
 
-        public void ProcessInput(InputValidated hormone)
+        public void ProcessInput(InputValidatedHormone hormone)
         {
             String base64 = ConvertToBase64(hormone.Data);
-            Emit(new ProcessingComplete(base64));
+            Emit(new EncodingCompleteHormone(base64));
         }
 
         private String ConvertToBase64(String data){
